@@ -8,13 +8,8 @@ fun nameGenerator() {
     val race = chooseRace()
     val gender = chooseGender()
     val number = numberOfNames()
-    if (number == 1) {
-        println(generateName(race, gender))
-    } else {
-        repeat(number) {
-            println(generateName(race, gender))
-        }
-    }
+    if (number == 1) println(generateName(race, gender))
+    else repeat(number!!) { println(generateName(race, gender)) }
     generateMoreNames()
 
 }
@@ -33,26 +28,30 @@ tailrec fun generateMoreNames() {
     }
 }
 
-fun numberOfNames(): Int {
+fun numberOfNames(): Int? {
     println("How many names would you like to generate?")
     print("Choose a number between 1 and 50: ")
-    val number = try {
-        readln().toInt()
-    } catch (_: NumberFormatException) {
-        print(NOT_BETWEEN_1_AND_50)
-        numberOfNames()
-    }
-    return when {
-       number < 1 -> {
-           println("This input is less than 1. Defaulting to 1 name.")
-           1
-       }
-        number > 50 -> {
-            println("This input is more than 50. Defaulting to 50 names.")
-            50
+    return tryGetNumberInputOrNull(NOT_BETWEEN_1_AND_50)
+        ?.let {
+            when {
+                it < 1 -> {
+                    println("This input is less than 1. Defaulting to 1 name.")
+                    1
+                }
+
+                it > 50 -> {
+                    println("This input is more than 50. Defaulting to 50 names.")
+                    50
+                }
+
+                else -> it
+            }
         }
-        else -> number
-    }
+        ?: numberOfNames()
+}
+
+fun getNamesList(): String {
+    return Race.entries.joinToString("\n") { "${it.ordinal + 1}) ${it.raceName}" }
 }
 
 fun chooseRace(): Int {
@@ -60,39 +59,23 @@ fun chooseRace(): Int {
         """
         Choose a race to generate a name for. Enter one of the numbers for the corresponding races below. 
         Your options are:
-        1) Common
-        2) Amazon
-        3) Anglo-Saxon
-        4) Atlantean
-        5) Carolingian Frankish
-        6) Esquimaux
-        7) Esquimaux-Ixian
-        8) Greek
-        9) Hyperborean
-        10) Ixian
-        11) Keltic
-        12) Kimmerian
-        13) Kimmerian (Krimmean)
     """.trimIndent()
     )
+    println(getNamesList())
     val raceInput = getRaceInput()
     return raceInput
 }
 
-fun getRaceInput(): Int {
-    val choice = try {
-        readln().toInt()
-    } catch (_: NumberFormatException) {
-        println(INVALID_CHOICE)
-        getRaceInput()
+fun getRaceInput(): Int = tryGetNumberInputOrNull(INVALID_CHOICE)
+    ?.let {
+        if (it !in 1..Race.entries.size) {
+            println(INVALID_CHOICE)
+            getRaceInput()
+        } else {
+            it
+        }
     }
-    return if (choice !in 1..27) {
-        println(INVALID_CHOICE)
-        getRaceInput()
-    } else {
-        choice
-    }
-}
+    ?: getRaceInput()
 
 fun chooseGender(): Int {
     println(
@@ -102,39 +85,24 @@ fun chooseGender(): Int {
         2) Female
     """.trimIndent()
     )
-    val choice = try {
-        readln().toInt()
-    } catch (_: NumberFormatException) {
+    val choice = tryGetNumberInputOrNull(INVALID_CHOICE)
+    return if (choice !in  1..2) {
         println(INVALID_CHOICE)
         chooseGender()
-    }
-    return if (choice !in 1..2) {
-        println(INVALID_CHOICE)
-        chooseGender()
-    } else {
-        choice
-    }
+    } else choice ?: chooseGender()
 }
 
 fun generateName(race: Int, gender: Int): String {
     val isFemale = gender == 2
-    return when (race) {
-        1 -> CommonNames().generateFullName(isFemale)
-        2 -> AmazonNames().generateFullName(!isFemale)
-        3 -> AngloSaxonNames().generateName(isFemale)
-        4 -> AtlanteanNames().generateName(isFemale)
-        5 -> CarolingianFrankishNames().generateName(isFemale)
-        6 -> EsquimauxNames().generateName()
-        7 -> EsquimauxIxianNames().generateName()
-        8 -> GreekNames().generateName(isFemale)
-        9 -> HyperboreanNames().generateName(isFemale)
-        10 -> IxianNames().generateName(isFemale)
-        11 -> KelticNames().generateName(isFemale)
-        12 -> KimmerianNames().generateName(isFemale)
-        13 -> KimmerianNames().generateKrimmeanName(isFemale)
-        else -> CommonNames().generateFullName(isFemale)
-    }
+    return Race.entries[race - 1].generateName(isFemale)
 }
 
 const val INVALID_CHOICE = "This is not a valid option. Please enter a number from the list."
 const val NOT_BETWEEN_1_AND_50 = "This is not a valid input. Please choose a number between 1 and 50."
+
+fun tryGetNumberInputOrNull(errorMessage: String): Int? = try {
+    readln().toInt()
+} catch (_: NumberFormatException) {
+    println(errorMessage)
+    null
+}
