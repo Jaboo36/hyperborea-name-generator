@@ -1,6 +1,6 @@
 package names
 
-class CarolingianFrankishNames {
+object CarolingianFrankishNames {
     fun generateName(isFemale: Boolean = false) = if (isFemale) femaleNames.random() else maleNames.random()
 
     private val femaleNames = setOf(

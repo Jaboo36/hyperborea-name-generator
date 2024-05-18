@@ -2,7 +2,7 @@ package names
 
 import DiceRoller
 
-class AngloSaxonNames {
+object AngloSaxonNames {
 
     fun generateName(isFemale: Boolean = false): String = DiceRoller.rollD4().let {
         if (isFemale) personalNamesFemale.random().random()

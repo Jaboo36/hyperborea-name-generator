@@ -1,6 +1,6 @@
 package names
 
-class GreekNames {
+object GreekNames {
     fun generateName(isFemale: Boolean = false): String = if (isFemale) {
         "${femaleNames.random()} ${maleNames.random()}"
     } else {

@@ -1,11 +1,11 @@
 package names
 
-class AmazonNames {
-    fun generateFullName(isMale: Boolean = false): String {
-        return "${generateFirstName(isMale)} ${generateLastName()}"
+object AmazonNames {
+    fun generateFullName(isFemale: Boolean = false): String {
+        return "${generateFirstName(isFemale)} ${generateLastName()}"
     }
 
-    private fun generateFirstName(isMale: Boolean = false): String = if (isMale) {
+    private fun generateFirstName(isFemale: Boolean = false): String = if (!isFemale) {
         personalNamesMale.random()
     } else {
         personalNamesFemale.random()

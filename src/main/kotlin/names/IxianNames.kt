@@ -1,6 +1,6 @@
 package names
 
-class IxianNames {
+object IxianNames {
     fun generateName(isFemale: Boolean = false): String = if (isFemale) {
         println("Remember to add 'gune' before patronymic for wife, and 'thugater' for daughter")
         "${femalePersonalNames.random().random()} ${malePersonalNames.random()}"

@@ -1,12 +1,12 @@
 package names
 
-class KimmerianNames {
+object KimmerianNames {
 
-    fun generateName(isFemale: Boolean): String =
+    fun generateName(isFemale: Boolean = false): String =
         if (isFemale) generateFemaleName()
         else generateMaleName()
 
-    fun generateKrimmeanName(isFemale: Boolean) =
+    fun generateKrimmeanName(isFemale: Boolean = false) =
         if (isFemale) generateFemaleKrimmeanName()
         else generateMaleKrimmeanName()
 

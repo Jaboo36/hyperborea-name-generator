@@ -1,9 +1,9 @@
 package names
 
-open class EsquimauxNames {
-    open fun generateName(): String = names.random().first
+object EsquimauxNames {
+    fun generateName(): String = names.random().first
 
-    protected val names = setOf(
+    val names = setOf(
         Pair("Aguta", "Ag"),
         Pair("Akiak", "Ak"),
         Pair("Arjalinerk", "Arj"),

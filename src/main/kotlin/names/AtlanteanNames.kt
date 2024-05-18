@@ -4,7 +4,7 @@ import DiceRoller
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class AtlanteanNames {
+object AtlanteanNames {
     fun generateName(isFemale: Boolean = false): String = if (isFemale) {
         personalNamesFemale.random().random()
     } else {

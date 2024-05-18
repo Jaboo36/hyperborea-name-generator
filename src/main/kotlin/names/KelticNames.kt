@@ -1,6 +1,6 @@
 package names
 
-class KelticNames {
+object KelticNames {
 
     fun generateName(isFemale: Boolean = false): String = if (isFemale) generateFemaleName() else generateMaleName()
 

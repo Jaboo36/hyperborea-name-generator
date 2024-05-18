@@ -4,7 +4,7 @@ import DiceRoller
 import DiceRoller.random
 import kotlin.random.nextInt
 
-class CommonNames {
+object CommonNames {
     private fun generateNumberOfNameElements(): Int = when (DiceRoller.rollD6()) {
         in 1..3 -> 1
         in 4..6 -> 2

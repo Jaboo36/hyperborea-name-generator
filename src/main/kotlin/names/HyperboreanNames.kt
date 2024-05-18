@@ -1,8 +1,6 @@
 package names
 
-import DiceRoller
-
-class HyperboreanNames {
+object HyperboreanNames {
 
     fun generateName(isFemale: Boolean = false): String = if (isFemale) {
         "$FEMALE_PREFIX${generatePersonalName()} ${generateFamilyName()}"
@@ -116,8 +114,5 @@ class HyperboreanNames {
             "Zhuu"
         )
     )
-
-    companion object {
-        const val FEMALE_PREFIX = "Sha-"
-    }
+    private const val FEMALE_PREFIX = "Sha-"
 }
