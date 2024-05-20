@@ -4,11 +4,9 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 object DiceRoller {
-    fun rollD100(): Int = (random.nextInt(0..9) * 10 + random.nextInt(0..9)).let {
-        if (it == 0) 100 else it
-    }
+    fun rollD100(): Int = random.nextInt(1..100)
 
-    fun rollD50(): Int = (rollD100().toDouble() / 2.0).roundUpToInt()
+    fun rollD50(): Int = random.nextInt(1..50)
 
     fun rollD20(): Int = random.nextInt(1..20)
 
@@ -22,11 +20,9 @@ object DiceRoller {
 
     fun rollD4(): Int = random.nextInt(1..4)
 
-    fun rollD3(): Int = (rollD6().toDouble() / 2.0).roundUpToInt()
+    fun rollD3(): Int = random.nextInt(1..3)
 
     fun rollD2(): Int = random.nextInt(1..2)
 
     val random = Random.Default
 }
-
-fun Double.roundUpToInt(): Int = ceil(this).toInt()
