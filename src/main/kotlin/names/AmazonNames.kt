@@ -11,16 +11,19 @@ object AmazonNames {
         personalNamesFemale.random()
     }
 
-    private fun generateLastName(): String {
-        val matronymic = personalNamesFemale.random()
+    private fun generateLastName(): String = personalNamesFemale
+        .random()
+        .let {
+            val suffix = getSuffix(it)
+            it.dropLast(suffix.length) + suffix
+        }
 
-        return matronymicModifications
-            .asSequence()
-            .mapNotNull { (key, value) ->
-                matronymic.takeIf { it.endsWith(key) }?.let { it.dropLast(key.length) + value }
-            }
-            .firstOrNull() ?: matronymic
-    }
+    private fun getSuffix(name: String) = matronymicModifications
+        .asSequence()
+        .firstOrNull { name.endsWith(it.key) }
+        ?.value
+        ?: ""
+
 
     private val personalNamesFemale = setOf(
         "Astrasteia",
