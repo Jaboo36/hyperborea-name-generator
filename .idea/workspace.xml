@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f70189c7-3fa3-4653-b418-4da1de3de4f7" name="Changes" comment="feat: add Lapp, Lemurian, and Moorish name generation">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/names/MuNames.kt" afterDir="false" />
+    <list default="true" id="f70189c7-3fa3-4653-b418-4da1de3de4f7" name="Changes" comment="feat: add Mu names">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/Race.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/Race.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/CommonNames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/CommonNames.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/MuNames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/MuNames.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +85,7 @@
     "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/pict__names",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/RPGs/OSR/Hyperborea/HyperboreaNameGenerator",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -173,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716165385321</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: add Mu names">
+      <option name="closed" value="true" />
+      <created>1716175868057</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716175868057</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +203,7 @@
     <MESSAGE value="feat: refactor functions in main" />
     <MESSAGE value="feat: all files" />
     <MESSAGE value="feat: add Lapp, Lemurian, and Moorish name generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Lapp, Lemurian, and Moorish name generation" />
+    <MESSAGE value="feat: add Mu names" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Mu names" />
   </component>
 </project>
