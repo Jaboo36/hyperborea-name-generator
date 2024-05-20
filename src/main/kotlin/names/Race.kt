@@ -57,9 +57,7 @@ enum class Race(val raceName: String) : NameGenerator {
         override fun generateName(isFemale: Boolean?): String = PictishNames.generateName(isFemale ?: false)
     },
     ROMAN("Roman") {
-        override fun generateName(isFemale: Boolean?): String {
-            TODO("Not yet implemented")
-        }
+        override fun generateName(isFemale: Boolean?): String = RomanNames.generateName(isFemale ?: false)
     },
     TLINGIT("Tlingit") {
         override fun generateName(isFemale: Boolean?): String {
