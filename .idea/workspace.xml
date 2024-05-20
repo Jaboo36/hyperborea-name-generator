@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f70189c7-3fa3-4653-b418-4da1de3de4f7" name="Changes" comment="feat: add Mu names">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/names/PictishNames.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/CommonNames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/CommonNames.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/MuNames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/MuNames.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/AmazonNames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/AmazonNames.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/NameGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/NameGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/Race.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/Race.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,18 +57,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Jaboo36"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Jaboo36&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Jaboo36/hyperborea-name-generator",
-    "accountId": "4a60988b-9414-46e5-825a-d5ab90030643"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Jaboo36/hyperborea-name-generator&quot;,
+    &quot;accountId&quot;: &quot;4a60988b-9414-46e5-825a-d5ab90030643&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -88,6 +90,10 @@
     "git-widget-placeholder": "feature/pict__names",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/RPGs/OSR/Hyperborea/HyperboreaNameGenerator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
