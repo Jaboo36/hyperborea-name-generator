@@ -1,5 +1,5 @@
 package names
 
 interface NameGenerator {
-    fun generateName(gender: Boolean?): String
+    fun generateName(isFemale: Boolean?): String
 }
