@@ -1,52 +1,30 @@
 package names
 
 import DiceRoller
-import DiceRoller.random
-import kotlin.random.nextInt
 
 object CommonNames {
-    private fun generateNumberOfNameElements(): Int = when (DiceRoller.rollD6()) {
-        in 1..3 -> 1
-        in 4..6 -> 2
-        else -> throw IllegalArgumentException("Only values between 1 and 6 are accepted")
-    }
+    private fun generateNumberOfNameElements(): Int = DiceRoller.rollD2()
 
-    private fun hasSurnameSuffix(): Boolean = random.nextInt(1..4) == 1
+    private fun hasSurnameSuffix(): Boolean = DiceRoller.rollD4() == 1
 
-    private fun getSurnameSuffix(): String? = if (hasSurnameSuffix()) {
-        commonSurnameSuffix.random()
-    } else {
-        null
-    }
+    private fun getSurnameSuffix(): String? = if (hasSurnameSuffix()) commonSurnameSuffix.random() else null
 
     private fun getFemaleSuffix(): String = commonFemaleSuffix.random()
 
     private fun generateNamePart(): String {
-        val num = generateNumberOfNameElements()
-        require(num in 1..2) { "Only values between 1 and 2 are accepted" }
-        val oneElement = num in 1..1
-        val firstElement = commonNameElements
-            .random()
-            .optionallyRemoveLastChar()
-        val secondElement = if (oneElement) {
-            null
-        } else {
-            commonNameElements
-                .random()
-                .lowercase()
-                .optionallyRemoveLastChar()
-        }
-
-        return "$firstElement${secondElement ?: ""}"
+        val numberOfElements = generateNumberOfNameElements()
+        val firstElement = generateNameElement()
+        val secondElement = if (numberOfElements == 1) null else generateLowercaseNameElement()
+        return firstElement + (secondElement ?: "")
     }
 
-    private fun String.optionallyRemoveLastChar(): String {
-        return if (areLastTwoCharactersEqual(this) && DiceRoller.rollD2() == 1) {
-            this.dropLast(1)
-        } else {
-            this
-        }
-    }
+    private fun generateNameElement() = commonNameElements
+        .random()
+        .optionallyRemoveLastChar()
+
+    private fun generateLowercaseNameElement() = generateNameElement().lowercase()
+
+    private fun String.optionallyRemoveLastChar(): String = if (lastTwoCharsAreEqual() && DiceRoller.rollD2() == 1) dropLast(1) else this
 
     fun generateFullName(female: Boolean = false): String {
         val firstName = generateNamePart().let { if (female) it + getFemaleSuffix() else it }
@@ -56,14 +34,9 @@ object CommonNames {
         return "$firstName $lastName${suffix ?: ""}"
     }
 
-    private fun areLastTwoCharactersEqual(input: String): Boolean {
-        val length = input.length
-        return if (length >= 2) {
-            input[length - 2] == input[length - 1]
-        } else {
-            false
-        }
-    }
+    private fun String.lastTwoCharsAreEqual(): Boolean = if (length >= 2) {
+        takeLast(2).let { it.length == 2 && it.first() == it.last() }
+    } else false
 
     private val commonSurnameSuffix = setOf(
         "os",

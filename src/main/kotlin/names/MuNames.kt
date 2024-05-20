@@ -1,11 +1,11 @@
 package names
 
+import DiceRoller
+
 object MuNames {
 
     fun generateName(isFemale: Boolean): String {
-        val married = (1..2)
-            .random()
-            .let { it == 1 }
+        val married = DiceRoller.rollD2() == 1
         val name = names.random()
         return if (isFemale && married) name.generateMarriedFemaleName() else name
     }
