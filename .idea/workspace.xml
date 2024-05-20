@@ -4,21 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f70189c7-3fa3-4653-b418-4da1de3de4f7" name="Changes" comment="feat: refactor functions in main">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/names/LappNames.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/names/LemurianNames.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/names/MoorishNames.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_9_21.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_test_1_9_21.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_test_junit5_1_9_21.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_6_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_6_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_6_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_6_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="f70189c7-3fa3-4653-b418-4da1de3de4f7" name="Changes" comment="feat: add Lapp, Lemurian, and Moorish name generation">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/names/MuNames.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/Race.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/Race.kt" afterDir="false" />
     </list>
@@ -178,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716065415909</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: add Lapp, Lemurian, and Moorish name generation">
+      <option name="closed" value="true" />
+      <created>1716165385321</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716165385321</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +194,7 @@
     <MESSAGE value="feat: make existing races implement nameGenerator" />
     <MESSAGE value="feat: refactor functions in main" />
     <MESSAGE value="feat: all files" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: all files" />
+    <MESSAGE value="feat: add Lapp, Lemurian, and Moorish name generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Lapp, Lemurian, and Moorish name generation" />
   </component>
 </project>

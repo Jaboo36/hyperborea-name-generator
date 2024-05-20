@@ -51,9 +51,7 @@ enum class Race(val raceName: String) : NameGenerator {
         override fun generateName(gender: Boolean?): String = MoorishNames.generateName(gender ?: false)
     },
     MU("Mu") {
-        override fun generateName(gender: Boolean?): String {
-            TODO("Not yet implemented")
-        }
+        override fun generateName(gender: Boolean?): String = MuNames.generateName(gender ?: false)
     },
     PICTISH("Pictish") {
         override fun generateName(gender: Boolean?): String {
