@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f70189c7-3fa3-4653-b418-4da1de3de4f7" name="Changes" comment="feat: add Viking female names">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f70189c7-3fa3-4653-b418-4da1de3de4f7" name="Changes" comment="feat: add Viking male names">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/names/VikingNames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/names/VikingNames.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +181,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703300752715</updated>
-      <workItem from="1716488094853" duration="4052000" />
+      <workItem from="1716488094853" duration="4700000" />
     </task>
     <task id="LOCAL-00001" summary="feat: first commit, base implementation">
       <option name="closed" value="true" />
@@ -288,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716492736782</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat: add Viking male names">
+      <option name="closed" value="true" />
+      <created>1716493572250</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716493572250</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +327,7 @@
     <MESSAGE value="feat: create Roman name generation" />
     <MESSAGE value="feat: create Tlingit name generation" />
     <MESSAGE value="feat: add Viking female names" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Viking female names" />
+    <MESSAGE value="feat: add Viking male names" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Viking male names" />
   </component>
 </project>

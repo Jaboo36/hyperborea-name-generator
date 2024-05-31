@@ -1,6 +1,20 @@
 package names
 
 object VikingNames {
+
+    private fun generateMaleName() {
+        val father = maleNames.random()
+    }
+
+    private fun String.getFatherMod(): String {
+        return nameMods
+            .asSequence()
+            .firstOrNull { endsWith(it.key) }
+            ?.value
+            ?: ""
+    }
+
+
     private val femaleNames = setOf(
         "Alfhildr",
         "Arnbjorg",
@@ -120,8 +134,9 @@ object VikingNames {
         "Asmarr",
         "Asulfr",
         "Audbjorn",
-        "audgrimr",
+        "Audgrimr",
         "Audkell",
+        "Audulfr",
         "Audstienn",
         "Audvidr",
         "Baggi",
@@ -174,7 +189,7 @@ object VikingNames {
         "Hrolfr",
         "Ingi",
         "Ivarr",
-        "Jolurr",
+        "Jofurr",
         "ketill",
         "Knutr",
         "Lodinn",
@@ -204,5 +219,16 @@ object VikingNames {
         "Ullvaldr",
         "Vedr",
         "Vigmadr"
+    )
+
+    private val nameMods = mapOf(
+        "bjorn" to "biarnar",
+        "dr" to "ar",
+        "i" to "a",
+        "ir" to "a",
+        "ll" to "ls",
+        "nn" to "ns",
+        "rr" to "rs",
+        "r" to "s"
     )
 }
