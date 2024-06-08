@@ -2,17 +2,20 @@ package names
 
 object VikingNames {
 
-    private fun generateMaleName() {
-        val father = maleNames.random()
-    }
+    fun generateName(isFemale: Boolean) = if (isFemale) generateFemaleName() else generateMaleName()
 
-    private fun String.getFatherMod(): String {
-        return nameMods
-            .asSequence()
-            .firstOrNull { endsWith(it.key) }
-            ?.value
-            ?: ""
-    }
+    private fun generateMaleName() = "${maleNames.random()} ${generateLastName(false)}"
+
+    private fun generateFemaleName() = "${femaleNames.random()} ${generateLastName(true)}"
+
+    private fun generateLastName(isFemale: Boolean) = maleNames
+        .random()
+        .let {
+            val mod = it.getFatherMod()
+            it.dropLast(mod.original.length) + mod.new + sonOrDaughter(isFemale)
+        }
+
+    private fun String.getFatherMod() = nameMods.first { endsWith(it.original) }
 
 
     private val femaleNames = setOf(
@@ -221,14 +224,21 @@ object VikingNames {
         "Vigmadr"
     )
 
-    private val nameMods = mapOf(
-        "bjorn" to "biarnar",
-        "dr" to "ar",
-        "i" to "a",
-        "ir" to "a",
-        "ll" to "ls",
-        "nn" to "ns",
-        "rr" to "rs",
-        "r" to "s"
+    private val nameMods = setOf(
+        NameMod("bjorn", "biarnar"),
+        NameMod("dr", "ar"),
+        NameMod("i", "a"),
+        NameMod("ir", "a"),
+        NameMod("ll", "ls"),
+        NameMod("nn", "ns"),
+        NameMod("rr", "rs"),
+        NameMod("r", "s")
     )
+
+
+    private fun sonOrDaughter(isFemale: Boolean) = if (isFemale) "dottir" else "son"
+
 }
+
+data class NameMod(val original: String, val new: String)
+
