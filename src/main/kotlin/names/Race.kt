@@ -60,14 +60,12 @@ enum class Race(val raceName: String) : NameGenerator {
         override fun generateName(isFemale: Boolean?): String = RomanNames.generateName(isFemale ?: false)
     },
     TLINGIT("Tlingit") {
-        override fun generateName(isFemale: Boolean?): String = TlingitNames.generateName(isFemale ?: false)
+        override fun generateName(isFemale: Boolean?): String = TlingitNames.generateName()
     },
     VIKING("Viking") {
         override fun generateName(isFemale: Boolean?): String = VikingNames.generateName(isFemale ?: false)
     },
     Yakut("Yakut") {
-        override fun generateName(isFemale: Boolean?): String {
-            TODO("Not yet implemented")
-        }
+        override fun generateName(isFemale: Boolean?): String = YakutNames.generateName(isFemale ?: false)
     }
 }

@@ -1,9 +1,7 @@
 package names
 
-import java.lang.reflect.Array.set
-
 object TlingitNames {
-    fun generateName(isFemale: Boolean): String = "${names.random()} ${group.random()}"
+    fun generateName(): String = "${names.random()} ${group.random()}"
     private val group = setOf("Gooch", "Yeil")
     private val names = setOf(
         "Ch'aak",
