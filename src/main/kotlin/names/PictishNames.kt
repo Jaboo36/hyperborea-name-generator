@@ -13,14 +13,12 @@ object PictishNames {
         .random()
         .let {
             val suffix = getSuffix(it)
-            it.dropLast(suffix.length) + suffix
+            it.dropLast(suffix.original.length) + suffix.new
         }
 
-    private fun getSuffix(name: String): String = maleSuffix
-        .asSequence()
-        .firstOrNull { name.endsWith(it.key) }
-        ?.value
-        ?: ""
+    private fun getSuffix(name: String) = nameMods
+        .firstOrNull { name.endsWith(it.original) }
+        ?: NameMod("", "")
 
 
 
@@ -90,9 +88,10 @@ object PictishNames {
         "Vindex"
     )
 
-    private val maleSuffix = mapOf(
-        "ex" to "egis",
-        "ix" to "igis",
-        "os" to "i"
+    private val nameMods = setOf(
+        NameMod("ex", "egis"),
+        NameMod("is", "is"),
+        NameMod("ix", "igis"),
+        NameMod("os", "i")
     )
 }
