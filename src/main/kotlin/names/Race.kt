@@ -6,7 +6,7 @@ enum class Race(val raceName: String) : NameGenerator {
 
     },
     AMAZON("Amazon") {
-        override fun generateName(isFemale: Boolean?): String = AmazonNames.generateFullName(isFemale ?: false)
+        override fun generateName(isFemale: Boolean?): String = AmazonNames.generateName(isFemale ?: false)
     },
     ANGLO_SAXON("Anglo-Saxon") {
         override fun generateName(isFemale: Boolean?): String = AngloSaxonNames.generateName(isFemale ?: false)

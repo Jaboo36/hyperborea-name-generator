@@ -1,7 +1,7 @@
 package names
 
 object AmazonNames {
-    fun generateFullName(isFemale: Boolean = false): String {
+    fun generateName(isFemale: Boolean = false): String {
         return "${generateFirstName(isFemale)} ${generateLastName()}"
     }
 
@@ -15,14 +15,12 @@ object AmazonNames {
         .random()
         .let {
             val suffix = getSuffix(it)
-            it.dropLast(suffix.length) + suffix
+            it.dropLast(suffix.original.length) + suffix.new
         }
 
-    private fun getSuffix(name: String) = matronymicModifications
-        .asSequence()
-        .firstOrNull { name.endsWith(it.key) }
-        ?.value
-        ?: ""
+    private fun getSuffix(name: String) = nameMods
+        .firstOrNull {name.endsWith(it.original) }
+        ?: NameMod("", "doros")
 
 
     private val personalNamesFemale = setOf(
@@ -101,10 +99,10 @@ object AmazonNames {
         "Zenon"
     )
 
-    private val matronymicModifications = mapOf(
-        "dra" to "doros",
-        "e" to "edoros",
-        "ia" to "idoros",
-        "o" to "odoros"
+    private val nameMods = setOf(
+        NameMod("dra", "doros"),
+        NameMod("e", "edoros"),
+        NameMod("ia", "idoros"),
+        NameMod("o", "odoros")
     )
 }
