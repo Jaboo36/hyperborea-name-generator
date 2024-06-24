@@ -24,7 +24,8 @@ object CommonNames {
 
     private fun generateLowercaseNameElement() = generateNameElement().lowercase()
 
-    private fun String.optionallyRemoveLastChar(): String = if (lastTwoCharsAreEqual() && DiceRoller.rollD2() == 1) dropLast(1) else this
+    private fun String.optionallyRemoveLastChar(): String =
+        if (lastTwoCharsAreEqual() && DiceRoller.rollD2() == 1) dropLast(1) else this
 
     fun generateFullName(female: Boolean = false): String {
         val firstName = generateNamePart().let { if (female) it + getFemaleSuffix() else it }
