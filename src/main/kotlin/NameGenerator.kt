@@ -1,8 +1,10 @@
 import names.Race
 import java.io.File
+import java.io.UnsupportedEncodingException
 import kotlin.io.path.*
 
 object NameGenerator {
+
     private val PATH = Path("generatedNames.txt")
     private val OLD_PATH = Path("OLD_generatedNames.txt")
     private const val INVALID_CHOICE = "This is not a valid option. Please enter a number from the list."
@@ -13,8 +15,8 @@ object NameGenerator {
         when {
             PATH.exists() && OLD_PATH.exists() -> {
                 OLD_PATH.deleteExisting()
-                    PATH.toFile()
-                        .renameTo(File(OLD_PATH.name))
+                PATH.toFile()
+                    .renameTo(File(OLD_PATH.name))
             }
 
             PATH.exists() -> PATH.toFile().renameTo(File(OLD_PATH.name))
@@ -27,16 +29,32 @@ object NameGenerator {
         val race = chooseRace()
         val gender = chooseGender()
         val number = numberOfNames()
-        val names = number
-            ?.let { (0 until number).joinToString("\n") { generateName(race, gender) } }
-            ?: ""
-        if (PATH.exists()) {
-            PATH.toFile().appendText("\n${names}")
-        } else {
-            PATH.toFile().writeText(names)
+        val names = generateNames(
+            number = number,
+            race = race,
+            gender = gender
+        ).joinToString("\n") { it }
+        try {
+            if (PATH.exists()) {
+                PATH.toFile()
+                    .appendText(names)
+                    .also { println("adding names:\n$names\nto '$PATH'...") }
+            } else {
+                PATH.toFile()
+                    .writeText(names)
+                    .also { println("creating file '$PATH' and adding names: \n$names...") }
+            }
+        } catch (e: UnsupportedEncodingException) {
+            println("Failed to create file from string '$PATH'")
         }
         generateMoreNames()
     }
+
+    private fun generateNames(
+        number: Int,
+        race: Int,
+        gender: Int
+    ): List<String> = (1..number).map { generateName(race = race, gender = gender) }
 
     private tailrec fun generateMoreNames() {
         println("\nWould you like to generate more names?\ny/n: ")
@@ -51,11 +69,12 @@ object NameGenerator {
         }
     }
 
-    private fun numberOfNames(): Int? {
+    private fun numberOfNames(): Int {
         println("How many names would you like to generate?")
         print("Choose a number between 1 and 50: ")
-        return tryGetNumberInputOrNull(NOT_BETWEEN_1_AND_50)
-            ?.let {
+        return tryGetNumberInput(NOT_BETWEEN_1_AND_50)
+            .getOrElse { numberOfNames() }
+            .let {
                 when {
                     it < 1 -> {
                         println("This input is less than 1. Defaulting to 1 name.")
@@ -70,7 +89,6 @@ object NameGenerator {
                     else -> it
                 }
             }
-            ?: numberOfNames()
     }
 
     private fun getNamesList(): String {
@@ -89,8 +107,9 @@ object NameGenerator {
         return raceInput
     }
 
-    private fun getRaceInput(): Int = tryGetNumberInputOrNull(INVALID_CHOICE)
-        ?.let {
+    private fun getRaceInput(): Int = tryGetNumberInput(INVALID_CHOICE)
+        .getOrElse { getRaceInput() }
+        .let {
             if (it !in 1..Race.entries.size) {
                 println(INVALID_CHOICE)
                 getRaceInput()
@@ -98,7 +117,6 @@ object NameGenerator {
                 it
             }
         }
-        ?: getRaceInput()
 
     private fun chooseGender(): Int {
         println(
@@ -108,11 +126,15 @@ object NameGenerator {
         2) Female
     """.trimIndent()
         )
-        val choice = tryGetNumberInputOrNull(INVALID_CHOICE)
-        return if (choice !in  1..2) {
-            println(INVALID_CHOICE)
-            chooseGender()
-        } else choice ?: chooseGender()
+        return tryGetNumberInput(INVALID_CHOICE)
+            .getOrElse { chooseGender() }
+            .let {
+                if (it !in 1..2) {
+                    println(INVALID_CHOICE)
+                    chooseGender()
+                } else it
+            }
+
     }
 
     fun generateName(race: Int, gender: Int): String {
@@ -121,12 +143,10 @@ object NameGenerator {
     }
 
 
-
-
-    private fun tryGetNumberInputOrNull(errorMessage: String): Int? = try {
-        readln().toInt()
-    } catch (_: NumberFormatException) {
+    private fun tryGetNumberInput(errorMessage: String): Result<Int> = try {
+        Result.success(readln().toInt())
+    } catch (nfe: NumberFormatException) {
         println(errorMessage)
-        null
+        Result.failure(nfe)
     }
 }
