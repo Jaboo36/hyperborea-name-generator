@@ -15,7 +15,9 @@ object VikingNames {
             it.dropLast(mod.original.length) + mod.new + sonOrDaughter(isFemale)
         }
 
-    private fun String.getFatherMod() = nameMods.first { endsWith(it.original) }
+    private fun String.getFatherMod() = nameMods.firstOrNull {
+        endsWith(it.original)
+    } ?: NameMod(original = "", new = "")
 
 
     private val femaleNames = setOf(
